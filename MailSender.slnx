@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="MailSenderLib.Tests/MailSenderLib.Tests.csproj" />
+  <Project Path="MailSenderLib/MailSenderLib.csproj" />
+</Solution>
