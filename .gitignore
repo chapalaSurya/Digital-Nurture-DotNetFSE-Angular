@@ -1,0 +1,16 @@
+# Compiled output
+student-course-portal/dist
+student-course-portal/tmp
+student-course-portal/out-tsc
+student-course-portal/bazel-out
+student-course-portal/.angular
+
+# Node
+student-course-portal/node_modules
+node_modules
+npm-debug.log
+yarn-error.log
+
+# System files
+.DS_Store
+Thumbs.db

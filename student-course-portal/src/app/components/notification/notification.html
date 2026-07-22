@@ -1,0 +1,19 @@
+<div class="notification-widget">
+  <h4>🔔 {{ name }} Alert Instance</h4>
+  <div class="add-alert-row">
+    <input 
+      type="text" 
+      [(ngModel)]="newAlert" 
+      placeholder="Type alert message..." 
+      class="form-control"
+      (keyup.enter)="addAlert()"
+    />
+    <button class="btn btn-primary btn-sm" (click)="addAlert()">Add</button>
+  </div>
+  <ul class="alert-list" *ngIf="alerts.length > 0; else noAlerts">
+    <li *ngFor="let alert of alerts" class="alert-item">{{ alert }}</li>
+  </ul>
+  <ng-template #noAlerts>
+    <p class="no-alerts-text">No active alerts in this scope.</p>
+  </ng-template>
+</div>
