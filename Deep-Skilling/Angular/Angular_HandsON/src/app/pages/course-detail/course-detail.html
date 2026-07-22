@@ -1,0 +1,52 @@
+<div class="detail-container">
+  <div class="detail-card" *ngIf="course; else notFound">
+    <div class="detail-header">
+      <button class="back-btn" (click)="goBack()">← Back to Courses</button>
+      <div class="header-main">
+        <span class="course-code">{{ course.code }}</span>
+        <h2>{{ course.name }}</h2>
+      </div>
+    </div>
+
+    <div class="detail-body">
+      <div class="meta-section">
+        <div class="meta-card">
+          <span class="label">Credits</span>
+          <span class="val">{{ course.credits }} Credits</span>
+        </div>
+        <div class="meta-card">
+          <span class="label">Academic Standing</span>
+          <span class="val capitalize">{{ course.gradeStatus }}</span>
+        </div>
+      </div>
+
+      <div class="info-section">
+        <h3>Course Syllabus Overview</h3>
+        <p>
+          This course offers a deep dive into advanced theory and practical applications. Students will collaborate on project-based coursework, complete design sprints, and participate in peer-code reviews to ensure professional development in this sector.
+        </p>
+
+        <div class="syllabus-grid">
+          <div class="module">
+            <span class="mod-num">Week 1-3</span>
+            <h4>Module 1: Foundations & Architecture</h4>
+            <p>Introduction to fundamental concepts, structural rules, data typing models, and memory constraints.</p>
+          </div>
+          <div class="module">
+            <span class="mod-num">Week 4-7</span>
+            <h4>Module 2: Practical Integration & Design</h4>
+            <p>Hands-on development exercises, implementing patterns, mocking components, and writing tests.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #notFound>
+    <div class="not-found-box">
+      <h3>Course Not Found</h3>
+      <p>The course with ID {{ courseId }} could not be found in our directory.</p>
+      <button class="btn btn-primary" (click)="goBack()">Return to Catalog</button>
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,16 @@
+{
+  "courses": [
+    { "id": "1", "name": "Data Structures", "code": "CS101", "credits": 4, "gradeStatus": "passed" },
+    { "id": "2", "name": "Database Systems", "code": "CS102", "credits": 3, "gradeStatus": "passed" },
+    { "id": "3", "name": "Web Development", "code": "CS103", "credits": 4, "gradeStatus": "pending" },
+    { "id": "4", "name": "Algorithms", "code": "CS104", "credits": 4, "gradeStatus": "failed" },
+    { "id": "5", "name": "Cloud Computing", "code": "CS105", "credits": 3, "gradeStatus": "pending" }
+  ],
+  "enrollments": [
+    { "id": "1", "courseId": 1 },
+    { "id": "2", "courseId": 2 }
+  ],
+  "students": [
+    { "id": "1", "name": "Alex Mercer", "email": "alex.mercer@university.edu" }
+  ]
+}

@@ -1,0 +1,40 @@
+<div class="course-card-inner" [ngClass]="cardClasses" [ngStyle]="borderStyle">
+  <div class="card-header">
+    <span class="course-code">{{ course.code }}</span>
+    
+    <!-- Grade Status Badge using ngSwitch -->
+    <div [ngSwitch]="course.gradeStatus" class="grade-badge-container">
+      <span *ngSwitchCase="'passed'" class="badge badge-success">Passed</span>
+      <span *ngSwitchCase="'failed'" class="badge badge-error">Failed</span>
+      <span *ngSwitchDefault class="badge badge-warning">Pending</span>
+    </div>
+  </div>
+
+  <h3 class="course-title">{{ course.name }}</h3>
+
+  <div class="course-meta">
+    <!-- Display credits (will use custom pipe in Hands-On 3) -->
+    <span class="course-credits">
+      <span class="meta-icon">★</span> {{ course.credits | creditLabel }}
+    </span>
+  </div>
+
+  <!-- Expandable Detail Section -->
+  <div class="expanded-details" *ngIf="isExpanded">
+    <div class="details-divider"></div>
+    <p class="details-text">
+      <strong>Course Reference ID:</strong> {{ course.id }} <br>
+      This course focuses on essential core topics and provides hands-on coding exercises, regular assessments, and expert guidance.
+    </p>
+  </div>
+
+  <div class="card-actions">
+    <button class="btn btn-secondary btn-sm" (click)="toggleDetails()">
+      {{ isExpanded ? 'Hide Details' : 'Show Details' }}
+    </button>
+    
+    <button class="btn btn-sm" [ngClass]="isEnrolled ? 'btn-danger' : 'btn-primary'" (click)="onEnrollClick()">
+      {{ isEnrolled ? 'Unenroll' : 'Enroll' }}
+    </button>
+  </div>
+</div>
