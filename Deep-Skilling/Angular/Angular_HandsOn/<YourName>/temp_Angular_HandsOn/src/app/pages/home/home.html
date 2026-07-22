@@ -1,0 +1,97 @@
+<div class="home-container">
+  <section class="welcome-hero">
+    <h1>Welcome to the {{ portalName }}</h1>
+    <p class="description">
+      Manage your course enrollments, track your academic progress, and stay updated with your schedule.
+      Explore new topics and enhance your skills through our structured curriculum.
+    </p>
+  </section>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-icon info">📚</div>
+      <div class="stat-details">
+        <span class="stat-value">{{ coursesAvailableCount$ | async }}</span>
+        <span class="stat-label">Courses Available</span>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon success">🎓</div>
+      <div class="stat-details">
+        <span class="stat-value">{{ enrolledCount }}</span>
+        <span class="stat-label">Courses Enrolled</span>
+      </div>
+    </div>
+
+    <div class="stat-card">
+      <div class="stat-icon warning">⭐</div>
+      <div class="stat-details">
+        <span class="stat-value">{{ gpa }}</span>
+        <span class="stat-label">Current GPA</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="interactive-sandbox">
+    <h2>Academic Registration</h2>
+    
+    <div class="action-panel">
+      <button class="btn btn-primary" [disabled]="!isPortalActive" (click)="onEnrollClick()">
+        Enroll Now
+      </button>
+      
+      <div class="enrollment-message" *ngIf="message">
+        <span class="pulse-dot"></span>
+        {{ message }}
+      </div>
+    </div>
+
+    <div class="search-panel">
+      <label for="course-search" class="search-label">Quick Course Lookup</label>
+      <div class="search-input-wrapper">
+        <input 
+          id="course-search"
+          type="text" 
+          [(ngModel)]="searchTerm" 
+          placeholder="Type course name or code..."
+          class="search-input"
+        />
+      </div>
+      <p class="search-feedback" *ngIf="searchTerm">
+        Searching for: <strong class="highlight-term">{{ searchTerm }}</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- Hands-On 6 DI Demonstration Sandbox -->
+  <section class="di-sandbox">
+    <h2>Dependency Injection & Services Sandbox</h2>
+    
+    <!-- Task 1: Singleton Service Shared State Demo -->
+    <div class="di-demo-row">
+      <div class="di-demo-card">
+        <h3>1. Singleton CourseService</h3>
+        <p class="desc">Adding a course updates the singleton state, immediately reflected in both the header/home stats and this summary widget.</p>
+        
+        <div class="widget-row">
+          <app-course-summary-widget></app-course-summary-widget>
+          <button class="btn btn-primary" (click)="addMockCourse()">+ Add Custom Course</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Task 2: Hierarchical Provider Demo -->
+    <div class="di-demo-row">
+      <div class="di-demo-card">
+        <h3>2. Scoped NotificationService (Component-level Providers)</h3>
+        <p class="desc">Each card below instantiates a separate <code>NotificationService</code>. Adding an alert in one does NOT affect the other, demonstrating component-level scoping.</p>
+        
+        <div class="notifications-grid">
+          <app-notification name="Academic Advisor"></app-notification>
+          <app-notification name="Registrar Office"></app-notification>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
