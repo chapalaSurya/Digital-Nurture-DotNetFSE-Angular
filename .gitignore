@@ -1,12 +1,12 @@
 # Compiled output
-student-course-portal/dist
-student-course-portal/tmp
-student-course-portal/out-tsc
-student-course-portal/bazel-out
-student-course-portal/.angular
+Deep-Skilling/Angular/Angular_HandsOn/ChapalaSuryaTej/dist
+Deep-Skilling/Angular/Angular_HandsOn/ChapalaSuryaTej/tmp
+Deep-Skilling/Angular/Angular_HandsOn/ChapalaSuryaTej/out-tsc
+Deep-Skilling/Angular/Angular_HandsOn/ChapalaSuryaTej/bazel-out
+Deep-Skilling/Angular/Angular_HandsOn/ChapalaSuryaTej/.angular
 
 # Node
-student-course-portal/node_modules
+Deep-Skilling/Angular/Angular_HandsOn/ChapalaSuryaTej/node_modules
 node_modules
 npm-debug.log
 yarn-error.log
